@@ -19,10 +19,12 @@ require (
 	github.com/prometheus/client_golang v1.12.1
 	github.com/thought-machine/go-flags v1.6.1
 	golang.org/x/crypto v0.0.0-20220722155217-630584e8d5aa
-	golang.org/x/oauth2 v0.0.0-20220722155238-128564f6959c
+	golang.org/x/oauth2 v0.6.0
 	google.golang.org/grpc v1.49.0
 	google.golang.org/protobuf v1.28.1
 )
+
+replace github.com/coreos/go-oidc/v3 => ../go-oidc
 
 require (
 	github.com/beorn7/perks v1.0.1 // indirect
@@ -42,11 +44,10 @@ require (
 	github.com/prometheus/client_model v0.2.0 // indirect
 	github.com/prometheus/common v0.32.1 // indirect
 	github.com/prometheus/procfs v0.7.3 // indirect
-	golang.org/x/net v0.0.0-20220725212005-46097bf591d3 // indirect
-	golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f // indirect
-	golang.org/x/text v0.3.7 // indirect
+	golang.org/x/net v0.8.0 // indirect
+	golang.org/x/sys v0.6.0 // indirect
+	golang.org/x/text v0.8.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20200825200019-8632dd797987 // indirect
-	gopkg.in/square/go-jose.v2 v2.6.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

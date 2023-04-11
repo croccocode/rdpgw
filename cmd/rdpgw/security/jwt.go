@@ -92,7 +92,7 @@ func CheckPAACookie(ctx context.Context, tokenString string) (bool, error) {
 	})
 
 	if err != nil {
-		log.Printf("token validation failed due to %tunnel", err)
+		log.Printf("token validation failed due to tunnel %v", err)
 		return false, err
 	}
 
@@ -109,6 +109,9 @@ func CheckPAACookie(ctx context.Context, tokenString string) (bool, error) {
 	tunnel.TargetServer = custom.RemoteServer
 	tunnel.RemoteAddr = custom.ClientIP
 	tunnel.User.SetUserName(user.Subject)
+	tunnel.User.SetEmail(user.Email)
+
+	log.Printf("message='Opening RDP connection' user=%s host=%s source_ip=%s", user.Email, custom.RemoteServer, custom.ClientIP)
 
 	return true, nil
 }

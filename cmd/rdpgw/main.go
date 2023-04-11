@@ -36,6 +36,10 @@ var opts struct {
 
 var conf config.Configuration
 
+func init() {
+	log.SetFlags(log.Lshortfile | log.Ldate | log.Ltime)
+}
+
 func initOIDC(callbackUrl *url.URL) *web.OIDC {
 	// set oidc config
 	provider, err := oidc.NewProvider(context.Background(), conf.OpenId.ProviderUrl)

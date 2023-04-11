@@ -124,8 +124,8 @@ func (p *Processor) Process(ctx context.Context) error {
 			host := net.JoinHostPort(server, strconv.Itoa(int(port)))
 			if p.gw.CheckHost != nil {
 				log.Printf("Verifying %s host connection", host)
-				if ok, _ := p.gw.CheckHost(ctx, host); !ok {
-					log.Printf("Not allowed to connect to %s by policy handler", host)
+				if ok, err := p.gw.CheckHost(ctx, host); !ok {
+					log.Printf("Not allowed to connect to %s by policy handler error=%v", host, err)
 					msg := p.channelResponse(E_PROXY_RAP_ACCESSDENIED)
 					p.tunnel.Write(msg)
 					return fmt.Errorf("%x: denied by security policy", E_PROXY_RAP_ACCESSDENIED)
